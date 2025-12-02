@@ -17,18 +17,18 @@ document.addEventListener('click', (e) => {
 })
 
 container.addEventListener('mouseover', (e) => {
-    const target = e.target;
-    if (target.classList.contains('col')) {
-      if (!target.classList.contains('color')) {
-        target.classList.add('color');
-        target.style.backgroundColor = getRandomRgbColor();
-        target.style.opacity = 0.1;
-      } else {
-        const opacity = target.style.opacity;
-        target.style.opacity = Math.min(+opacity + 0.1, 1);
-      }
+  const target = e.target;
+  if (target.classList.contains('col')) {
+    if (!target.classList.contains('color')) {
+      target.classList.add('color');
+      target.style.backgroundColor = getRandomRgbColor();
+      target.style.opacity = 0.1;
+    } else {
+      const opacity = target.style.opacity;
+      target.style.opacity = Math.min(opacity + 0.1, 1);
     }
-  });
+  }
+});
 
 function getRandomRgbColor() {
   const red = Math.floor(Math.random() * 256);
