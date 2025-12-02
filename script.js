@@ -16,6 +16,20 @@ document.addEventListener('click', (e) => {
   }
 })
 
+document.addEventListener('mouseover', (e) => {
+    const target = e.target;
+    if (target.classList.contains('col')) {
+      if (!target.classList.contains('color')) {
+        target.classList.add('color');
+        target.style.backgroundColor = getRandomRgbColor();
+        target.style.opacity = 0.1;
+      } else {
+        const opacity = target.style.opacity;
+        target.style.opacity = +opacity + 0.1;
+      }
+    }
+  });
+
 function getRandomRgbColor() {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);
@@ -34,14 +48,6 @@ function createGrid(size = 16) {
     }
     container?.appendChild(row);
   }
-
-  document.addEventListener('mouseover', (e) => {
-    const target = e.target;
-    if (target.classList.contains('col')) {
-      target.classList.add('color');
-      target.style.backgroundColor = getRandomRgbColor();
-    }
-  });
 }
 
 createGrid();
