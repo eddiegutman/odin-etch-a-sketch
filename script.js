@@ -7,26 +7,14 @@ const sizeBtn = document.querySelector('#size-btn')
 document.addEventListener('click', (e) => {
   const target = e.target;
   if (target.id === 'size-btn') {
-    let input;
-    do {
-      input = prompt('Enter the number of squares per side for the new grid (max 100)');
-    } while (!(Number.isInteger(+input) && +input >= MIN_SIZE && +input <= MAX_SIZE));
-    container?.replaceChildren();
-    createGrid(+input);
+    changeGridSize();
   }
-})
+});
 
 container.addEventListener('mouseover', (e) => {
   const target = e.target;
   if (target.classList.contains('col')) {
-    if (!target.classList.contains('color')) {
-      target.classList.add('color');
-      target.style.backgroundColor = getRandomRgbColor();
-      target.style.opacity = 0.1;
-    } else {
-      const opacity = target.style.opacity;
-      target.style.opacity = Math.min(opacity + 0.1, 1);
-    }
+    gridCellHover(target);
   }
 });
 
@@ -47,6 +35,26 @@ function createGrid(size = 16) {
       row.appendChild(col);
     }
     container?.appendChild(row);
+  }
+}
+
+function changeGridSize() {
+  let input;
+  do {
+    input = prompt('Enter the number of squares per side for the new grid (max 100)');
+  } while (!(Number.isInteger(+input) && +input >= MIN_SIZE && +input <= MAX_SIZE));
+  container?.replaceChildren();
+  createGrid(+input);
+}
+
+function gridCellHover(target) {
+  if (!target.classList.contains('color')) {
+    target.classList.add('color');
+    target.style.backgroundColor = getRandomRgbColor();
+    target.style.opacity = 0.1;
+  } else {
+    const opacity = target.style.opacity;
+    target.style.opacity = Math.min(+opacity + 0.1, 1);
   }
 }
 
