@@ -11,3 +11,10 @@ for (let i = 0; i < SIZE; i++) {
   }
   container?.appendChild(row);
 }
+
+document.addEventListener('mouseover', (e) => {
+  const target = e.target;
+  if (target.classList.contains('col')) {
+    target.classList.add('color');
+  }
+});
