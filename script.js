@@ -1,4 +1,20 @@
+const MIN_SIZE = 1;
+const MAX_SIZE = 100;
+
 const container = document.querySelector('#container');
+const sizeBtn = document.querySelector('#size-btn')
+
+document.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.id === 'size-btn') {
+    let input;
+    do {
+      input = prompt('Enter the number of squares per side for the new grid (max 100)');
+    } while (!(Number.isInteger(+input) && +input >= MIN_SIZE && +input <= MAX_SIZE));
+    container?.replaceChildren();
+    createGrid(+input);
+  }
+})
 
 function createGrid(size = 16) {
   for (let i = 0; i < size; i++) {

@@ -1,3 +1,9 @@
+#header {
+  display: flex;
+  justify-content: center;
+  margin-block: 10px;
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -19,4 +25,9 @@
 .color {
   background-color: red;
   transition: background-color 1.0s ease-out;
+}
+
+#size-btn {
+  padding: 5px 10px;
+  font-size: 20px;
 }
