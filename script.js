@@ -16,7 +16,7 @@ document.addEventListener('click', (e) => {
   }
 })
 
-document.addEventListener('mouseover', (e) => {
+container.addEventListener('mouseover', (e) => {
     const target = e.target;
     if (target.classList.contains('col')) {
       if (!target.classList.contains('color')) {
