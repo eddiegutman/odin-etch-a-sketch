@@ -16,6 +16,13 @@ document.addEventListener('click', (e) => {
   }
 })
 
+function getRandomRgbColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
 function createGrid(size = 16) {
   for (let i = 0; i < size; i++) {
     const row = document.createElement('div');
@@ -32,6 +39,7 @@ function createGrid(size = 16) {
     const target = e.target;
     if (target.classList.contains('col')) {
       target.classList.add('color');
+      target.style.backgroundColor = getRandomRgbColor();
     }
   });
 }

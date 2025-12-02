@@ -23,8 +23,7 @@
 }
 
 .color {
-  background-color: red;
-  transition: background-color 1.0s ease-out;
+  transition: background-color 0.5s ease-out;
 }
 
 #size-btn {
