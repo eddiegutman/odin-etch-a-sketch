@@ -7,13 +7,11 @@
 #container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   height: 90vh;
 }
 
 .row {
   display: flex;
-  justify-content: space-evenly;
   flex: 1;
 }
 
