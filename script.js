@@ -25,7 +25,7 @@ container.addEventListener('mouseover', (e) => {
         target.style.opacity = 0.1;
       } else {
         const opacity = target.style.opacity;
-        target.style.opacity = +opacity + 0.1;
+        target.style.opacity = Math.min(+opacity + 0.1, 1);
       }
     }
   });
